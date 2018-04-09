@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        {% block icon %}<link rel="icon" href="static/image/favicon.ico">{% endblock icon %}
+        <title>{% block title %}{% endblock %} | 大气腐蚀数据集</title>
+        <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="static/css/jumbotron-narrow.css" rel="stylesheet">
+        <script src="static/js/ie-emulation-modes-warning.js"></script>
+        <script>
+            // 所有 ajax 错误打印在 console 中
+            $( document ).ajaxError(function(event, jqxhr, settings, exception) {
+                console.log("Ajax Error, " + settings.url);
+                console.log("status: " + jqxhr.status);
+                console.log("readyState: " + jqxhr.readyState);
+                console.log("exception: " + exception);
+            });
+        </script>
+        {% block head %}{% endblock %}
+        {% block css %}{% endblock %}
+        {% block js %}{% endblock %}
+
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+    </head>
+    <body>
+        {% include "messages.html" %}
+        <!-- ############ CONTENT ############-->
+        <div id="master-content-div" style="height:100%">
+            {% block content %}{% endblock %}
+        </div>
+        <!-- ############ FOOTER ############-->
+        {% block footer %}
+        <div class="container">
+            <footer class="footer">
+                <p>&copy; 2018 支元杰.</p>
+            </footer>
+        </div>
+        {% endblock footer %}
+    </body>
+</html>
