@@ -42,6 +42,7 @@ class Environment(BaseModel):
 
 class Chemical(BaseModel):
     chemicalid = models.IntegerField()
+    chemicalname = models.CharField(max_length=40)
     P = models.CharField(max_length=40)
     C = models.CharField(max_length=40)
     S = models.CharField(max_length=40)
