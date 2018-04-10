@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-材料
+腐蚀
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -12,11 +12,11 @@
                           首页
                         </a>
                     </li>
-                    <li role="presentation"><a href="/environment/list">
+                    <li role="presentation" ><a href="/environment/list">
                         腐蚀地点</a>
                     </li>
-                    <li role="presentation"  class="active"><a href="/material/list">腐蚀材料</a></li>
-                    <li role="presentation"><a href="/corrosion/list">腐蚀速率</a></li>
+                    <li role="presentation" ><a href="/material/list">腐蚀材料</a></li>
+                    <li role="presentation"  class="active"><a href="/corrosion/list">腐蚀速率</a></li>
                   </ul>
                 </nav>
         </div>
@@ -26,37 +26,43 @@
             <table class="table table-condensed table-bordered table-hover text-default">
                 <tr class="default small text-default">
                     <th class="text-center">
-                        材料名称
+                        材料
                     </th>
                     <th class="text-center">
-                        P
+                        地点
                     </th>
                     <th class="text-center">
-                        C
+                        起始时间
                     </th>
                     <th class="text-center">
-                        S
+                        终止时间
                     </th>
                     <th class="text-center">
-                        Si
+                        腐蚀速率(um/a)
                     </th>
                 </tr>
-                {% for material in materials %}
+                {% for rate in rates %}
                 <tr class="default small">
+                    {% for material in rate.material %}
+
                     <td class="text-center">
                         {{ material.chemicalname }}
                     </td>
+                    {% endfor %}
+                    {% for environment in rate.environment %}
+
                     <td class="text-center">
-                        {{ material.P }}
+                        {{ environment.location }}
+                    </td>
+                    {% endfor %}
+                    <td class="text-center">
+                        {{ rate.starttime }}
                     </td>
                     <td class="text-center">
-                        {{ material.C }}
+                        {{ rate.endtime }}
                     </td>
                     <td class="text-center">
-                        {{ material.S }}
-                    </td>
-                    <td class="text-center">
-                        {{ material.Si }}
+                        {{ rate.corrosionrate }}
                     </td>
                 </tr>
                 {% endfor %}

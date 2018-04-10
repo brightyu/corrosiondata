@@ -50,6 +50,16 @@ class Chemical(BaseModel):
 
 class CorrosionResult(BaseModel):
     corrosionid = models.IntegerField()
+    environmentid = models.IntegerField()
+    chemicalid = models.IntegerField()
     starttime = models.DateField()
     endtime = models.DateField()
     corrosionrate = models.CharField(max_length=40)
+
+    @property
+    def material(self):
+        return Chemical.objects.filter(chemicalid = self.chemicalid)
+
+    @property
+    def environment(self):
+        return Environment.objects.filter(environmentid = self.environmentid)

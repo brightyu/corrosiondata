@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-材料
+地点
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -12,10 +12,9 @@
                           首页
                         </a>
                     </li>
-                    <li role="presentation"><a href="/environment/list">
-                        腐蚀地点</a>
-                    </li>
-                    <li role="presentation"  class="active"><a href="/material/list">腐蚀材料</a></li>
+                    <li role="presentation"  class="active"><a href="/environment/list">
+                        腐蚀地点</a></li>
+                    <li role="presentation" ><a href="/material/list">腐蚀材料</a></li>
                     <li role="presentation"><a href="/corrosion/list">腐蚀速率</a></li>
                   </ul>
                 </nav>
@@ -26,37 +25,49 @@
             <table class="table table-condensed table-bordered table-hover text-default">
                 <tr class="default small text-default">
                     <th class="text-center">
-                        材料名称
+                        地点
                     </th>
                     <th class="text-center">
-                        P
+                        时间
                     </th>
                     <th class="text-center">
-                        C
+                        日照时间
                     </th>
                     <th class="text-center">
-                        S
+                        Hcl
                     </th>
                     <th class="text-center">
-                        Si
+                        SO2
+                    </th>
+                    <th class="text-center">
+                        PH
+                    </th>
+                    <th class="text-center">
+                        Rain
                     </th>
                 </tr>
-                {% for material in materials %}
+                {% for environment in environments %}
                 <tr class="default small">
                     <td class="text-center">
-                        {{ material.chemicalname }}
+                        {{ environment.location }}
                     </td>
                     <td class="text-center">
-                        {{ material.P }}
+                        {{ environment.time }}
                     </td>
                     <td class="text-center">
-                        {{ material.C }}
+                        {{ environment.sunshine }}
                     </td>
                     <td class="text-center">
-                        {{ material.S }}
+                        {{ environment.hcl }}
                     </td>
                     <td class="text-center">
-                        {{ material.Si }}
+                        {{ environment.so2 }}
+                    </td>
+                    <td class="text-center">
+                        {{ environment.ph }}
+                    </td>
+                    <td class="text-center">
+                        {{ environment.rain }}
                     </td>
                 </tr>
                 {% endfor %}
