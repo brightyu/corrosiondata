@@ -2,10 +2,10 @@
     <socket>/var/run/uwsgi_corrosiondata.sock</socket>
     <chmod-socket>775</chmod-socket>
     <chown-socket>www-data:www-data</chown-socket>
-    <chdir>/home/zyj/src/corrosiondata</chdir>
+    <chdir>/home/zyj/learngit/corrosiondata</chdir>
     <uid>www-data</uid>
     <gid>www-data</gid>
-    <pythonpath>/home/zyj/src/corrosiondata</pythonpath>
+    <pythonpath>/home/zyj/learngit/corrosiondata</pythonpath>
     <module>corrosiondata.wsgi:application</module>
     <master/>
     <processes>4</processes>

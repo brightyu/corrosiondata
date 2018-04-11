@@ -46,6 +46,7 @@ class Chemical(BaseModel):
     P = models.CharField(max_length=40)
     C = models.CharField(max_length=40)
     S = models.CharField(max_length=40)
+    Cu = models.CharField(max_length=40, default=3.2)
     Si = models.CharField(max_length=40)
 
 class CorrosionResult(BaseModel):
